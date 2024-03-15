@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Holo-Relighting: Controllable Volumetric Portrait Relighting from a Single Image</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+        <!--FACEBOOK-->
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="682">
+    <meta property="og:image:height" content="682">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mengweiren/research/relightful-harmonization"/>
+    <meta property="og:title" content="Holo-Relighting" />
+    <meta property="og:description" content="Project page for Holo-Relighting." />
+    <meta name="author" content="Yiqun Mei">
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="static/css/app.css">
+
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+              Holo-Relighting: Controllable Volumetric Portrait Relighting from a Single Image              
+            </br> 
+                <small style="font-size: 18px; color: darkred;">
+                    <a href="static/pdfs/CVPR2024_holorelighting_arxiv.pdf" style="color: inherit; ">CVPR 2024</a> 
+                </small>              
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://yiqunmei.net">
+                          Yiqun Mei <sup>1</sup>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://zengyu.me//">
+                          Yu Zeng <sup>1*</sup>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://sites.google.com/site/hezhangsprinter/">
+                        He Zhang <sup>2*</sup>
+                        </a>
+                    </li> 
+                    <li>
+                        <a href="https://zhixinshu.github.io/">
+                        Zhixin Shu <sup>2*</sup>
+                        </a>
+                    </li>
+                    <li>
+                      <a href="https://sai-bi.github.io">
+                      Sai Bi <sup>2</sup>
+                      </a>
+                  </li>
+                  
+                  <li>
+                    <a href="https://ceciliavision.github.io">
+                    Xuaner Zhang <sup>2</sup>
+                    </a>
+                </li>
+                <br>
+                    <li>
+                        <a href="https://jimmie33.github.io/">
+                        Jianming Zhang <sup>2</sup>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/hyunvincero">
+                         HyunJoon Jung  <sup>2</sup>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://engineering.jhu.edu/vpatel36/">
+                         Vishal M. Patel  <sup>1</sup>
+                        </a>
+                        <!-- </br>New York University -->
+                    
+                    </li><br>
+                    <li>
+                        <sup>1</sup> Adobe
+                        </a>
+                    </li>
+                    <li>
+                    <sup>2</sup> Johns Hopkins University 
+                        </a>
+                    </li><br>
+                    <li>
+                        <sup>*</sup> The second authors
+                        </a>
+                </ul>
+                  
+            </div>
+        </div>
+
+       
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                            <p style="text-align:left;">
+            <image src="static/images/teaser.png" class="img-responsive" alt="scales">
+              <div>
+                <p class="text-justify">
+                  Holo-Relighting performs volumetric relighting on a single input portrait image, allowing users to individually control (1) lighting
+                  effect via an environment map, (2) camera viewpoint and (3) head pose. It is highly expressive and can render complex illumination effects
+                  on in-the-wild human faces with accurate view consistency (a). Controls are well disentangled to produce a realistic rendering of moving
+                  shadows cast by a point light while rotating the head (b). Practical photographic applications such as shadow diffusion (softening) are also
+                  made feasible with our system (c).
+                </p>
+              </div>
+           
+        </p>
+                </div> 
+        </div>
+
+        <br>
+
+<div class="row">
+          <div class="col-md-8 col-md-offset-2 text-center">
+            <style>
+              .responsive-video {
+                width: 100%;
+                height: auto;
+              }
+            </style>
+            
+            <video class="responsive-video" controls autoplay loop src="static/videos/holo-video.mp4">
+              <source src="static/videos/holo-video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+
+     
+          </div>
+          
+        </div>
+
+        <br> <!-- Add a line break here -->
+
+
+
+        
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                  At the core of portrait photography is the search for ideal lighting and viewpoint. 
+                  The process often requires advanced knowledge in photography and an elaborate studio setup. 
+                  In this work, we propose Holo-Relighting, a volumetric relighting method that is capable of synthesizing novel viewpoints,
+                   and novel lighting from a single image. 
+                   Holo-Relighting leverages the pretrained 3D GAN (EG3D) to reconstruct geometry and appearance from an input portrait as a set of 3D-aware features. 
+                   We design a relighting module conditioned on a given lighting to process these features, and predict a relit 3D representation in the form of a tri-plane, which can render to an arbitrary viewpoint through volume rendering. 
+                   Besides viewpoint and lighting control, Holo-Relighting also takes the head pose as a condition to enable head-pose-dependent lighting effects. 
+                  With these novel designs, Holo-Relighting can generate complex non-Lambertian lighting effects (e.g., specular highlights and cast shadows) without using any explicit physical lighting priors. We train Holo-Relighting with data captured with a light stage, and propose two data-rendering techniques to improve the data quality for training the volumetric relighting system. 
+                  Through quantitative and qualitative experiments, we demonstrate Holo-Relighting can achieve state-of-the-arts relighting quality with better photorealism, 3D consistency and controllability.
+                 </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Method
+                </h3>
+                <p style="text-align:center;">
+                  <image src="static/images/flow.png" class="img-responsive" alt="scales">
+              </p>
+                <p class="text-justify">
+                  Holo-Relighting performs volumetric relighting on a single input portrait image, allowing users to individually control (1) lighting effect via an environment map, (2) camera viewpoint and (3) head pose. It is highly expressive and can render complex illumination effects on in-the-wild human faces with accurate view consistency (a). Controls are well disentangled to produce a realistic rendering of moving shadows cast by a point light while rotating the head (b). Practical photographic applications such as shadow diffusion (softening) are also made feasible with our system (c).
+                    </p>
+                
+            </div>
+        </div>
+
+        
+
+
+
+        <div class="row">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    BibTeX
+                </h3>
+                <div class="fcol-xs-6 text-left ">
+                <!-- <div class="container is-max-desktop content"> -->
+                    <pre><code>@article{mei2024holorelighting,
+title={Holo-Relighting: Controllable Volumetric Portrait Relighting from a Single Image}, 
+author={Yiqun Mei and Yu Zeng and He Zhang and Zhixin Shu and Sai Bi and Xuaner Zhang and Jianming Zhang and HyunJoon Jung and Vishal M. Patel},
+journal={CVPR},
+year={2024}
+}</code></pre>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+
+                The website template was borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            </p>
+            </div>
+    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
