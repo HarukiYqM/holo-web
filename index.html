@@ -194,7 +194,12 @@
                   <image src="static/images/flow.png" class="img-responsive" alt="scales">
               </p>
                 <p class="text-justify">
-                  Holo-Relighting performs volumetric relighting on a single input portrait image, allowing users to individually control (1) lighting effect via an environment map, (2) camera viewpoint and (3) head pose. It is highly expressive and can render complex illumination effects on in-the-wild human faces with accurate view consistency (a). Controls are well disentangled to produce a realistic rendering of moving shadows cast by a point light while rotating the head (b). Practical photographic applications such as shadow diffusion (softening) are also made feasible with our system (c).
+                    An overview of Holo-Relighting. Our method consists of three stages. (a) We first remove the shading from the input portrait
+                    and estimate an albedo image. (b) We then conduct GAN inversion upon EG3D to obtain a latent code encoding 3D information
+of the subject. (c) The relighting network takes in the lighting condition, head pose as well as intermediate GAN features produced by
+EG3D’s tri-plane generator using the inverted latent code w, and predicts a shading tri-plane, which is summed to the
+albedo, resulting in the relit tri-plane with lighting embedded. High-resolution RGB images can be rendered
+from rrelit tri-plane via volume rendering and a super-resolution network. During training, we freeze tri-plane generator and only update the relighting net.
                     </p>
                 
             </div>
